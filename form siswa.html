@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'>
+	<link rel="stylesheet" href="fontawesome-free-6.4.2-web/css/all.min.css">
+	<title></title>
+	<style type="text/css">
+		.fr{
+			margin: 0 auto;
+			width: 800px;
+		}
+		.fr1,.fr2,.fr3,.fr5,.fr6{
+			display: block;
+			margin-bottom: 7px;
+			margin-top: 7px;
+			font-family: 'Fredoka One';
+			font-size: 19px;
+			height: 30px;
+			width: 90%;
+			border-radius: 10px;
+			padding-left: 10px;
+		}
+		.fr4{
+			display: inline-block;
+			margin-bottom: 7px;
+			font-family: 'Fredoka One';
+			font-size: 19px;
+			border-radius: 10px;
+			width: 45%;
+		}
+		.fr8{
+			display: flex;
+			font-family: 'Fredoka One';
+            font-size: 19px;
+            margin-top: 10px;
+            border-radius: 10px;
+		}
+		h2{
+			text-align: center;
+			font-family: 'Fredoka One';
+			font-size: 27px;
+		}
+		option{
+			font-family: 'Fredoka One';
+			font-size: 19px;
+		}
+		body {
+        font-family: 'Fredoka One';
+        font-size: 19px;
+        background-image: url('aura2.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    	}
+    	.gender{
+    		display: flex;
+    		margin-top: 10px;
+    	}
+    	#sklr{
+    		display: block;
+    	}
+    	#send{
+    		background-color: limegreen;
+    		font-family: 'Fredoka One';
+            font-size: 19px;
+            border-radius: 7px;
+            width: 120px;
+            height: 40px;
+    	}
+    	#cancel{
+    		background-color: red;
+    		font-family: 'Fredoka One';
+            font-size: 19px;
+            border-radius: 7px;
+            margin-left: 6px;
+            width: 120px;
+            height: 40px;
+    	}
+    	#tombol{
+    		float: left;
+    	}
+    	textarea{
+    		border-radius: 3%;
+    	}
+    	#round {
+		display: block;
+		position: relative;
+		padding-left: 35px;
+		margin-bottom: 12px;
+		cursor: pointer;
+		font-size: 22px;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		}
+		#round input {
+		  position: absolute;
+		  opacity: 0;
+		  cursor: pointer;
+		}
+		.checkmark {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  height: 25px;
+		  width: 25px;
+		  background-color: #eee;
+		  border-radius: 30%;
+		}
+		#round:hover input ~ .checkmark {
+		  background-color: #ccc;
+		}
+		#round input:checked ~ .checkmark {
+		  background-color: #2196F3;
+		}
+		.checkmark:after {
+		  content: "";
+		  position: absolute;
+		  display: none;
+		}
+		#round input:checked ~ .checkmark:after {
+		display: block;
+		}
+		#round .checkmark:after {
+	 	top: 9px;
+		left: 9px;
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: white;
+		}
+		.switch {
+	  position: relative;
+	  display: inline-block;
+	  width: 60px;
+	  height: 34px;
+	  margin-top: 20px;
+	  margin-bottom: 10px;
+		}
+		.switch input { 
+		  opacity: 0;
+		  width: 0;
+		  height: 0;
+		}
+		.slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #ccc;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		}
+		.slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 26px;
+		  width: 26px;
+		  left: 4px;
+		  bottom: 4px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		}
+		input:checked + .slider {
+		  background-color: #2196F3;
+		}
+		input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		}
+		input:checked + .slider:before {
+		  -webkit-transform: translateX(26px);
+		  -ms-transform: translateX(26px);
+		  transform: translateX(26px);
+		}
+		.slider.round {
+		  border-radius: 34px;
+		}
+		.slider.round:before {
+		  border-radius: 50%;
+		}
+		@media (min-width: 320px) and (max-width: 480px){
+			.fr{
+				overflow: auto;
+				width: 320px;
+				margin: 0 auto;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="fr">
+		<form>
+	<h2>DATA SISWA</h2>
+	<label class="fr1">NISN: </label>
+	<input type="text" name="nisn" class="fr1" placeholder="Masukkan NISN Anda" required>
+	<label class="fr2">Nama Lengkap: </label>
+	<input type="text" name="nama" class="fr2" placeholder="Masukkan Nama Anda" required>
+	<label class="fr3"required>Tempat/Tanggal Lahir: </label>
+	<select name="kota" class="fr4" >
+		<option selected disabled>Pilih Kota/Kabupaten: </option>
+		<option>Medan</option>
+		<option>Binjai</option>
+		<option>Pematang Siantar</option>
+		<option>Tebing Tinggi</option>
+		<option>Tanjung Morawa</option>
+	</select>
+	<input type="date" class="fr4" name="ttl" required>
+	<label class="fr5">Agama: </label>
+	<select name="agama" class="fr5" required>
+		<option>Islam</option>
+		<option>Kristen Protestan</option>
+		<option>Kristen Katolik</option>
+		<option>Buddha</option>
+		<option>Hindu</option>
+		<option>Konghucu</option>
+	</select>
+	<label>Jenis Kelamin: </label>
+	<div class="gender">
+	<label id="round" class="fr4">Laki-laki
+	<input type="radio" name="radio" class="fr8"><span class="checkmark"></span>
+    </label>
+	<label id="round"  class="fr4">Perempuan 
+    <input type="radio" name="radio" class="fr8">
+	<span class="checkmark"></span>
+	</label>
+    </div>
+	<label class="fr6">Alamat Lengkap: </label>
+	<textarea name="alamat" rows="10" cols="60" >
+	</textarea>
+	<div id="sklr">
+	<label class="switch">
+    <input type="checkbox">
+    <span class="slider round"></span>
+    </label>
+    Saya Menyatakan Data sudah benar
+    </div>
+	<div class="fr8">
+	<!-- <div id="tombol send">
+	<i class=""></i>	
+	<input type="submit" name="Kirim" value="kirim" id="send">
+    </div> -->
+    <!-- <div id="tombol cancel">
+    <i class="fa fa-times"></i>
+	<input type="reset" name="Batal" value="batal" id="cancel">
+    </div> -->
+    <button type="submit" id="send"><i class="fa fa-check" style="padding: 5px;"></i>Kirim</button>
+    <button type="reset" id="cancel"><i class="fa fa-times" style="padding: 5px;"></i>Batal</button>
+</div>
+    </form>
+    </div>
+</body>
+</html>
